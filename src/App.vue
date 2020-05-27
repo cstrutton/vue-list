@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <v-app>
-      <app-header :links="links" :branding="branding" />
       <v-content>
-        <router-view />
+        <app-header :links="links" :branding="branding" />
+        <v-content>
+          <router-view />
+        </v-content>
+        <app-footer :links="links" :branding="branding" />
       </v-content>
-      <app-footer :links="links" :branding="branding" />
     </v-app>
   </div>
 </template>
