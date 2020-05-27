@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="primary lighten-1" padless>
+  <v-footer color="primary lighten-1" padless app>
     <v-layout justify-center wrap>
       <v-btn
         v-for="link in links"
