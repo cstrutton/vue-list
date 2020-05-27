@@ -1,59 +1,35 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+  <div id="app">
+    <v-app>
+      <app-header :links="links" :branding="branding" />
+      <v-content>
+        <router-view />
+      </v-content>
+      <app-footer :links="links" :branding="branding" />
+    </v-app>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import AppHeader from '@/components/layout/AppHeader.vue'
+import AppFooter from '@/components/layout/AppFooter.vue'
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld
+    AppHeader,
+    AppFooter
   },
 
   data: () => ({
+    branding: {
+      appName: 'Vue List'
+    },
+    links: [
+      { label: 'Home', url: '/' },
+      { label: 'About', url: '/about' }
+    ]
     //
   })
 }
