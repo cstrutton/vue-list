@@ -2,7 +2,15 @@
   <div>
     <v-card max-width="600" class="mx-auto">
       <v-fab-transition>
-        <v-btn color="pink" fab dark absolute bottom right>
+        <v-btn
+          color="pink"
+          fab
+          dark
+          absolute
+          bottom
+          right
+          @click="addItem(newItem)"
+        >
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-fab-transition>
@@ -48,6 +56,14 @@ export default {
   name: 'Home',
   data: () => ({
     selectedItem: null,
+    newItem: {
+      id: null,
+      icon: 'mdi-folder',
+      iconClass: 'grey lighten-1 white--text',
+      title: '',
+      content: ''
+    },
+
     items: [
       {
         id: 0,
@@ -75,6 +91,12 @@ export default {
   methods: {
     itemClick(selectedItem) {
       this.selected = selectedItem
+    },
+    addItem(item) {
+      item.id = this.items.length
+      const today = new Date()
+      item.content = today.toDateString()
+      this.items.push(item)
     }
   }
 }
